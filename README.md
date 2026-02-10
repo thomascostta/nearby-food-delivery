@@ -107,8 +107,6 @@ Aplicativo Android desenvolvido com Kotlin e Jetpack Compose.
          android:value="SUA_CHAVE_AQUI" />
      ```
    
-   > ⚠️ **NUNCA** faça commit da sua chave da API em repositórios públicos!
-
 4. **Configure a conexão com o Backend**
    
    **Para Emulador Android:**
