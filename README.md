@@ -1,198 +1,198 @@
 # Nearby - Food Delivery 📍
 
-O Nearby é um aplicativo de clube de benefícios que permite aos usuários encontrar estabelecimentos próximos, visualizá-los em um mapa interativo e resgatar cupons de desconto através da leitura de QR Codes.
+Nearby is a benefits club application that allows users to find nearby establishments, view them on an interactive map, and redeem discount coupons by scanning QR Codes.
 
-![Telas do Aplicativo](image/map-readme.png)
+![App Screenshots](image/map-readme.png)
 
-## ✨ Funcionalidades
+## ✨ Features
 
-- 🗺️ **Mapa Interativo**: Visualize estabelecimentos parceiros em um mapa do Google Maps
-- 📍 **Localização**: Encontre estabelecimentos próximos à sua localização
-- 🏷️ **Categorias**: Filtre estabelecimentos por categorias (Alimentação, Cinema, Compras, etc.)
-- 🎟️ **Cupons**: Visualize cupons disponíveis em cada estabelecimento
-- 📱 **QR Code Scanner**: Escaneie QR Codes para resgatar cupons de desconto
-- 📋 **Detalhes**: Veja informações detalhadas sobre cada estabelecimento (endereço, telefone, regras)
+- 🗺️ **Interactive Map**: View partner establishments on a Google Maps map
+- 📍 **Location**: Find establishments near your location
+- 🏷️ **Categories**: Filter establishments by categories (Food, Cinema, Shopping, etc.)
+- 🎟️ **Coupons**: View available coupons at each establishment
+- 📱 **QR Code Scanner**: Scan QR Codes to redeem discount coupons
+- 📋 **Details**: See detailed information about each establishment (address, phone, rules)
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Technologies Used
 
-- **Kotlin** - Linguagem de programação
-- **Jetpack Compose** - UI moderna e declarativa
-- **Google Maps Compose** - Integração com mapas
-- **Ktor** - Cliente HTTP para comunicação com API
-- **Kotlin Serialization** - Serialização de dados
-- **Navigation Compose** - Navegação entre telas
-- **Coil** - Carregamento de imagens
-- **ZXing** - Leitura de QR Codes
+- **Kotlin** - Programming language
+- **Jetpack Compose** - Modern and declarative UI
+- **Google Maps Compose** - Maps integration
+- **Ktor** - HTTP client for API communication
+- **Kotlin Serialization** - Data serialization
+- **Navigation Compose** - Screen navigation
+- **Coil** - Image loading
+- **ZXing** - QR Code reading
 - **Material Design 3** - Design system
 
-## 🚀 Como Rodar o Projeto
+## 🚀 How to Run the Project
 
-### 📋 Pré-requisitos
+### 📋 Prerequisites
 
-- **Node.js** (versão 18 ou superior) - Para o backend
-- **Android Studio** (versão mais recente) - Para o mobile
-- **JDK 11 ou superior**
-- **Android SDK** (API 24 ou superior)
-- **Dispositivo Android** ou **Emulador** configurado
+- **Node.js** (version 18 or higher) - For the backend
+- **Android Studio** (latest version) - For mobile
+- **JDK 11 or higher**
+- **Android SDK** (API 24 or higher)
+- **Android Device** or **Emulator** configured
 
 ---
 
 ## 🖥️ Backend (API)
 
-O backend é uma API REST desenvolvida com Node.js, Express e Prisma.
+The backend is a REST API developed with Node.js, Express, and Prisma.
 
-### Executar o Backend
+### Running the Backend
 
-1. **Navegue até a pasta do backend**
+1. **Navigate to the backend folder**
    ```bash
    cd backend
    ```
 
-2. **Instale as dependências**
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-3. **Configure o banco de dados**
+3. **Configure the database**
    ```bash
    npx prisma migrate dev
    npx prisma db seed
    ```
 
-4. **Inicie o servidor**
+4. **Start the server**
    ```bash
    npm start
    ```
 
-O servidor estará rodando em `http://localhost:3333`
+The server will be running at `http://localhost:3333`
 
 ---
 
-## 📱 Mobile (Android App) - **FOCO PRINCIPAL**
+## 📱 Mobile (Android App) - **MAIN FOCUS**
 
-Aplicativo Android desenvolvido com Kotlin e Jetpack Compose.
+Android application developed with Kotlin and Jetpack Compose.
 
-### Passo a Passo
+### Step by Step
 
-1. **Clone o repositório**
+1. **Clone the repository**
    ```bash
    git clone https://github.com/thomascostta/nearby-food.git
    cd nearby-food
    ```
 
-2. **Abra o projeto Mobile no Android Studio**
-   - Abra o Android Studio
-   - Selecione "Open an Existing Project"
-   - Navegue até a pasta `mobile/` e selecione-a
-   - Aguarde a sincronização do Gradle
+2. **Open the Mobile project in Android Studio**
+   - Open Android Studio
+   - Select "Open an Existing Project"
+   - Navigate to the `mobile/` folder and select it
+   - Wait for Gradle synchronization
 
-3. **Configure a API do Google Maps** ⚠️ **IMPORTANTE**
+3. **Configure the Google Maps API** ⚠️ **IMPORTANT**
    
-   O aplicativo requer uma chave da API do Google Maps:
+   The application requires a Google Maps API key:
    
-   **a) Obter a chave:**
-   - Acesse o [Google Cloud Console](https://console.cloud.google.com/)
-   - Crie um novo projeto ou selecione um existente
-   - Ative a **Maps SDK for Android**
-   - Vá em **Credenciais** → **Criar Credenciais** → **Chave de API**
-   - Copie a chave gerada
+   **a) Get the key:**
+   - Access the [Google Cloud Console](https://console.cloud.google.com/)
+   - Create a new project or select an existing one
+   - Enable **Maps SDK for Android**
+   - Go to **Credentials** → **Create Credentials** → **API Key**
+   - Copy the generated key
    
-   **b) Configurar no projeto:**
-   - Abra `mobile/app/src/main/AndroidManifest.xml`
-   - Localize `com.google.android.geo.API_KEY`
-   - Substitua `YOUR_GOOGLE_MAPS_API_KEY_HERE` pela sua chave:
+   **b) Configure in the project:**
+   - Open `mobile/app/src/main/AndroidManifest.xml`
+   - Locate `com.google.android.geo.API_KEY`
+   - Replace `YOUR_GOOGLE_MAPS_API_KEY_HERE` with your key:
      ```xml
      <meta-data
          android:name="com.google.android.geo.API_KEY"
-         android:value="SUA_CHAVE_AQUI" />
+         android:value="YOUR_KEY_HERE" />
      ```
    
-4. **Configure a conexão com o Backend**
+4. **Configure Backend connection**
    
-   **Para Emulador Android:**
-   - Abra `mobile/app/src/main/java/com/thomascosta/nearby/core/network/NearbyRemoteDataSource.kt`
-   - Certifique-se que `BASE_URL = LOCAL_HOST_EMULATOR_BASE_URL`
-   - O emulador usa `10.0.2.2` para acessar o localhost
+   **For Android Emulator:**
+   - Open `mobile/app/src/main/java/com/thomascosta/nearby/core/network/NearbyRemoteDataSource.kt`
+   - Make sure `BASE_URL = LOCAL_HOST_EMULATOR_BASE_URL`
+   - The emulator uses `10.0.2.2` to access localhost
    
-   **Para Dispositivo Físico:**
-   - Descubra o IP da sua máquina:
-     - Linux/Mac: `ifconfig` ou `ip addr`
+   **For Physical Device:**
+   - Find your machine's IP:
+     - Linux/Mac: `ifconfig` or `ip addr`
      - Windows: `ipconfig`
-   - Abra `NearbyRemoteDataSource.kt` e altere:
+   - Open `NearbyRemoteDataSource.kt` and change:
      ```kotlin
-     private const val LOCAL_HOST_PHYSICAL_BASE_URL = "http://SEU_IP:3333"
+     private const val LOCAL_HOST_PHYSICAL_BASE_URL = "http://YOUR_IP:3333"
      const val BASE_URL = LOCAL_HOST_PHYSICAL_BASE_URL
      ```
-   - Certifique-se que o dispositivo está na mesma rede Wi-Fi
+   - Make sure the device is on the same Wi-Fi network
 
-5. **Execute o aplicativo**
-   - Conecte um dispositivo Android via USB (com depuração USB habilitada) **ou**
-   - Inicie um emulador Android
-   - Clique no botão "Run" (▶️) no Android Studio ou pressione `Shift + F10`
+5. **Run the application**
+   - Connect an Android device via USB (with USB debugging enabled) **or**
+   - Start an Android emulator
+   - Click the "Run" button (▶️) in Android Studio or press `Shift + F10`
 
-6. **Teste o aplicativo**
-   - Conceda as permissões de localização e câmera quando solicitado
-   - Explore os estabelecimentos no mapa
-   - Teste o scanner de QR Code para resgatar cupons
+6. **Test the application**
+   - Grant location and camera permissions when prompted
+   - Explore establishments on the map
+   - Test the QR Code scanner to redeem coupons
 
-## 📱 Requisitos Mínimos
+## 📱 Minimum Requirements
 
-- Android 7.0 (API 24) ou superior
-- Conexão com internet
-- Permissão de localização (para visualizar estabelecimentos próximos)
-- Câmera (para escanear QR Codes)
+- Android 7.0 (API 24) or higher
+- Internet connection
+- Location permission (to view nearby establishments)
+- Camera (to scan QR Codes)
 
-## 🔒 Segurança
+## 🔒 Security
 
-**ATENÇÃO**: Este projeto contém configurações que devem ser personalizadas:
+**WARNING**: This project contains settings that must be customized:
 
-1. **API Key do Google Maps**: 
-   - Nunca faça commit da sua chave em repositórios públicos
-   - Use restrições de API no Google Cloud Console
-   - Limite o uso apenas para o package `com.thomascosta.nearby`
+1. **Google Maps API Key**: 
+   - Never commit your key to public repositories
+   - Use API restrictions in Google Cloud Console
+   - Limit usage only to the package `com.thomascosta.nearby`
 
-2. **Configuração do Backend**:
-   - O arquivo `.env` do backend não está versionado
-   - Ajuste o `BASE_URL` no mobile conforme seu ambiente (emulador/dispositivo físico)
+2. **Backend Configuration**:
+   - The backend `.env` file is not versioned
+   - Adjust the `BASE_URL` in mobile according to your environment (emulator/physical device)
 
-3. **Boas práticas**:
-   - Mantenha arquivos sensíveis no `.gitignore`
-   - Use variáveis de ambiente para dados sensíveis em produção
-   - Configure restrições adequadas nas APIs utilizadas
+3. **Best practices**:
+   - Keep sensitive files in `.gitignore`
+   - Use environment variables for sensitive data in production
+   - Configure appropriate restrictions on APIs used
 
-## 📄 Estrutura do Projeto
+## 📄 Project Structure
 
 ```
 nearby-food/
-├── backend/                   # API REST (Node.js + Express)
-│   ├── prisma/               # Schema e migrations do banco
+├── backend/                   # REST API (Node.js + Express)
+│   ├── prisma/               # Database schema and migrations
 │   ├── src/
-│   │   ├── controllers/      # Controllers da API
-│   │   ├── routes/           # Rotas da API
-│   │   └── server.ts         # Servidor principal
+│   │   ├── controllers/      # API controllers
+│   │   ├── routes/           # API routes
+│   │   └── server.ts         # Main server
 │   └── package.json
 │
-└── mobile/                   # Aplicativo Android (Kotlin)
+└── mobile/                   # Android Application (Kotlin)
     └── app/
         └── src/main/java/com/thomascosta/nearby/
-            ├── core/network/         # Cliente HTTP (Ktor)
-            ├── data/model/           # Modelos de dados
+            ├── core/network/         # HTTP Client (Ktor)
+            ├── data/model/           # Data models
             ├── ui/
-            │   ├── component/        # Componentes reutilizáveis
-            │   ├── screen/           # Telas do app
-            │   │   ├── home/         # Tela principal com mapa
-            │   │   ├── market_details/  # Detalhes do estabelecimento
-            │   │   ├── qrcode_scanner/  # Scanner de QR Code
-            │   │   └── welcome/      # Tela de boas-vindas
-            │   ├── route/            # Navegação
-            │   └── theme/            # Tema e estilos
-            └── MainActivity.kt       # Activity principal
+            │   ├── component/        # Reusable components
+            │   ├── screen/           # App screens
+            │   │   ├── home/         # Main screen with map
+            │   │   ├── market_details/  # Establishment details
+            │   │   ├── qrcode_scanner/  # QR Code scanner
+            │   │   └── welcome/      # Welcome screen
+            │   ├── route/            # Navigation
+            │   └── theme/            # Theme and styles
+            └── MainActivity.kt       # Main activity
 ```
 
-## 📝 Licença
+## 📝 License
 
-Este projeto foi desenvolvido para fins educacionais.
+This project was developed for educational purposes.
 
 ---
 
-Desenvolvido com ❤️ durante o **NLW Pocket Mobile Android** da **Rocketseat**
+Developed with ❤️ during **NLW Pocket Mobile Android** by **Rocketseat**
